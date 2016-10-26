@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Drawing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Easle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Easle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -71,7 +71,7 @@
                                         </constraints>
                                         <state key="normal" image="settings"/>
                                         <connections>
-                                            <segue destination="BSU-Vf-PTv" kind="show" id="fde-DF-SWg"/>
+                                            <segue destination="BSU-Vf-PTv" kind="show" identifier="drawingToSettingsSegue" id="fde-DF-SWg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -93,6 +93,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="di0-cM-zcD"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="buttonStack" destination="RFd-hj-9FR" id="qgY-kG-NLt"/>
+                        <outlet property="imageView" destination="ja5-p5-oaB" id="u1Y-cV-cm2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,7 +115,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="RkF-Sk-tWP"/>
+                    <navigationItem key="navigationItem" title="Settings" id="RkF-Sk-tWP">
+                        <barButtonItem key="rightBarButtonItem" title="Erase" id="mak-f3-4gp">
+                            <connections>
+                                <action selector="erase:" destination="BSU-Vf-PTv" id="i3R-wD-WZw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8U-RB-TiS" userLabel="First Responder" sceneMemberID="firstResponder"/>

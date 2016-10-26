@@ -9,11 +9,18 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+ 
+    weak var drawingVC: DrawingViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = false
     }
-
+    
+    @IBAction func erase(sender: UIBarButtonItem) {
+        self.drawingVC?.eraseDrawing()
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }
