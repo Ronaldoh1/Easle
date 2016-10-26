@@ -16,6 +16,10 @@ class DrawingViewController: UIViewController {
     
     var lastPoint = CGPoint.zero
     
+    var red: CGFloat = 0.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,7 +72,7 @@ class DrawingViewController: UIViewController {
             
             CGContextSetLineCap(context, .Round)
             
-            CGContextSetRGBStrokeColor(context, 0.3, 0.6, 0.2, 1)
+            CGContextSetRGBStrokeColor(context, red, green, blue, 1)
            
             CGContextStrokePath(context)
             
@@ -99,5 +103,40 @@ class DrawingViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func blueTapped(sender: AnyObject) {
+        
+        self.red = 56 / 255
+        self.green = 109 / 255
+        self.blue = 229 / 255
+        
+    }
+    
+    @IBAction func greenTapped(sender: AnyObject) {
+        self.red = 37 / 255
+        self.green = 235 / 255
+        self.blue = 114 / 255
+        
+    }
+    
+    @IBAction func redTapped(sender: AnyObject) {
+        self.red = 229 / 255
+        self.green = 56 / 255
+        self.blue = 56 / 255
+    }
+    
+    @IBAction func yellowTapped(sender: AnyObject) {
+        self.red =  249 / 255
+        self.green = 215 / 255
+        self.blue = 23 / 255
+    }
+    
+    @IBAction func randomTapped(sender: AnyObject) {
+       
+        self.red =  CGFloat(arc4random_uniform(255)) / 255
+        self.green = CGFloat(arc4random_uniform(255))  / 255
+        self.blue = CGFloat(arc4random_uniform(255))  / 255
+    }
+    
 }
 
